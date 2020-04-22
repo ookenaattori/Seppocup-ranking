@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<title>Seppocup ranking</title>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+	<h1>Ottelut</h1>
+	<div class="col-md-4" style="padding:20px 0">
+	<input type="button" value="Ranking" onclick="window.location.href='/ranking'" class="btn btn-primary"/>
+	<input type="button" value="Ottelut" onclick="window.location.href='/ottelut'" class="btn btn-primary"/>
+	</div>
+	
+	<table class="table table-striped">
+	<tbody>
+		<tr>
+			<th>Koti</th>
+			<th>Vieras</th>
+			<th>Maalit koti</th>
+			<th>Maalit vieras</th>
+			<th>Pisteet koti</th>
+			<th>Pisteet vieras</th>
+			<th>JA</th>
+			<th sec:authorize="hasAuthority('ADMIN')">Valinnat</th>
+			
+			</tr>
+		
+		<tr th:each="ottelu : ${ottelut}">
+		
+			<td th:text="${ottelu.joukkue1}"></td>
+			<td th:text="${ottelu.joukkue2}"></td>
+			<td th:text="${ottelu.maalit1}"></td>
+			<td th:text="${ottelu.maalit2}"></td>
+			<td th:text="${ottelu.pisteet1}"></td>
+			<td th:text="${ottelu.pisteet2}"></td>
+			<td th:text="${ottelu.ja}"></td>
+			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/editottelu/{id}(id=${ottelu.id})}" class="btn btn-primary">Muokkaa</a>
+			<a th:href="@{/deleteottelu/{id}(id=${ottelu.id})}" class="btn btn-xs btn-danger">Poista</a></td>
+		</tr>
+		</tbody>
+	</table>
+	<input sec:authorize="hasAuthority('ADMIN')" type="button" value="Lisää joukkue" onclick="window.location.href='/lisaaottelu'" class="btn btn-primary" style="width:100%"/>
+	<div class="col-md-4" style="padding:20px 20px">
+	<h2>Pisteiden lasku:</h2>
+	<p>Voitosta saa aina 3 pistettä, häviöstä 0. Tasapelistä saa yhden pisteen, jolloin peli menee jatkoajalle.</p>
+	</div>
+</body>
+</html>

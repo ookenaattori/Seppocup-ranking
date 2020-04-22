@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<title>Seppocup ranking</title>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+	<h1>Seppocup ranking</h1>
+	<div class="col-md-4" style="padding:20px 0">
+	<input type="button" value="Ranking" onclick="window.location.href='/ranking'" class="btn btn-primary"/>
+	<input type="button" value="Ottelut" onclick="window.location.href='/ottelut'" class="btn btn-primary"/>
+	</div>
+	<table class="table table-striped">
+	<tbody>
+		<tr>
+			<th>Nimi</th>
+			<th>Pisteet</th>
+			<th>Voitot</th>
+			<th>Häviöt</th>
+			<th>J-Voitot</th>
+			<th>J-Häviöt</th>
+			<th>Maalit</th>
+			<th>Ottelut</th>
+			<th>Valmentaja</th>
+			<th sec:authorize="hasAuthority('ADMIN')">Valinnat</th>
+				
+		</tr>
+		<tr th:each="joukkue : ${joukkueet}">
+	
+			<td th:text="${joukkue.nimi}"></td>
+			<td th:text="${joukkue.pisteet}"></td>
+			<td th:text="${joukkue.voitot}"></td>
+			<td th:text="${joukkue.haviot}"></td>
+			<td th:text="${joukkue.jvoitot}"></td>
+			<td th:text="${joukkue.jhaviot}"></td>
+			<td th:text="${joukkue.maalit}"></td>
+			<td th:text="${joukkue.ottelut}"></td>
+			<td th:text="${joukkue.valmentaja.nimi}"></td>
+			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/edit/{id}(id=${joukkue.id})}" class="btn btn-primary">Muokkaa</a>
+			<a th:href="@{/deletejoukkue/{id}(id=${joukkue.id})}" class="btn btn-xs btn-danger">Poista</a></td>
+			
+		</tr>
+		</tbody>
+	</table>
+	<input sec:authorize="hasAuthority('ADMIN')" type="button" value="Lisää joukkue" onclick="window.location.href='/add'" class="btn btn-primary" style="width:100%"/>
+	
+<div class="col-md-4" style="padding:80px 20px">
+		<h3 th:inline="text">Tervetuloa [[${#httpServletRequest.remoteUser}]]</h3>
+
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Kirjaudu ulos" class="btn btn-sm btn-danger"/>
+		</form>
+	</div>
+</body>
+</html>

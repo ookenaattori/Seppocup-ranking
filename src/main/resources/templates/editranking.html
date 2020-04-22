@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Seppocup Ranking</title>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+</head>
+<body>
+	<h1>Muokkaa tilastoja</h1>
+	<div>
+		<form th:object="${joukkue}" th:action="@{../savejoukkue}" action="#"
+			method="post">
+			<label for="id"></label>
+			<input type="hidden" id="id" th:field="*{id}" readonly="readonly"/>
+			<label for="nimi">Nimi</label>
+			<input type="text" id="nimi" th:field="*{nimi}" />
+			<label for="pisteet">Pisteet</label>
+			<input type="text" id="pisteet" th:field="*{pisteet}" />
+			<label for="voitot">Voitot</label>
+			<input type="text" th:field="*{voitot}" />
+			<label for="haviot">Häviöt</label>
+			<input type="text" th:field="*{haviot}" />
+			<label for="jvoitot">J-voitot</label>
+			<input type="text" th:field="*{jvoitot}" />
+			<label for="jhaviot">J-häviöt</label>
+			<input type="text" th:field="*{jhaviot}" />
+			<label for="maalit">Maalit</label>
+			<input type="text" th:field="*{maalit}" />
+			<label for="ottelut">Ottelut</label>
+			<input type="text" th:field="*{ottelut}" />
+			
+			<div style="clear: both; display: block; height: 10px;"></div>						
+		  	<label for="valmlist">Valmentaja</label>
+			 <select id="valmlist" th:field="*{valmentaja.valmentajaid}" class="form-control" style="width: 8%">
+       			<option th:each="valmentaja: ${valmentajat}" th:value="${valmentaja.valmentajaid}" th:text="${valmentaja.nimi}"></option>
+    		</select>
+    		
+			
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="submit" value="Save" class="btn btn-success"></input>
+		</form>
+	</div>
+</body>
+</html>
