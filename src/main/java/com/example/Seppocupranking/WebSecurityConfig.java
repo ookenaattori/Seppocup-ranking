@@ -37,7 +37,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .authorizeRequests().anyRequest().authenticated()
         .and()
       .formLogin()
-          .defaultSuccessUrl("/ranking")
+          .defaultSuccessUrl("https://seppocup-ranking.herokuapp.com/ranking")
           .permitAll()
           .and()
       .logout()
