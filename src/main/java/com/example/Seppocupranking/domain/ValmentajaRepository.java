@@ -9,5 +9,6 @@ import org.springframework.data.repository.CrudRepository;
 public interface ValmentajaRepository extends CrudRepository<Valmentaja, Long> {
 	
 	List<Valmentaja> findByNimi(String nimi);
+	List<Valmentaja> deleteById(long id);
 	
 }
