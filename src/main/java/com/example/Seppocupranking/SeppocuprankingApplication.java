@@ -26,17 +26,17 @@ public class SeppocuprankingApplication {
 		return(args) -> {
 			
 			// Luodaan valmentaja olioita
-			Valmentaja valmentaja1 = new Valmentaja("Nivalainen");
-			Valmentaja valmentaja2 = new Valmentaja("Mömmö");
-			Valmentaja valmentaja3 = new Valmentaja("Kummola");
-			Valmentaja valmentaja4 = new Valmentaja("Tuovinen");
-			Valmentaja valmentaja5 = new Valmentaja("Kontkanen");
+			//Valmentaja valmentaja1 = new Valmentaja("Nivalainen");
+			//Valmentaja valmentaja2 = new Valmentaja("Mömmö");
+			//Valmentaja valmentaja3 = new Valmentaja("Kummola");
+			//Valmentaja valmentaja4 = new Valmentaja("Tuovinen");
+			//Valmentaja valmentaja5 = new Valmentaja("Kontkanen");
 			
-			vrepository.save(valmentaja1);
-			vrepository.save(valmentaja2);
-			vrepository.save(valmentaja3);
-			vrepository.save(valmentaja4);
-			vrepository.save(valmentaja5);
+			//vrepository.save(valmentaja1);
+			//vrepository.save(valmentaja2);
+			//vrepository.save(valmentaja3);
+			//vrepository.save(valmentaja4);
+			//vrepository.save(valmentaja5);
 			
 			// Luodaan joukkue olioita
 			Joukkue joukkue1 = new Joukkue("New york", 0, 0, 1, 0, 0, 2, 1, vrepository.findByNimi("Nivalainen").get(0));
@@ -49,12 +49,12 @@ public class SeppocuprankingApplication {
 		
 			
 			// Create test users: admin/admin user/user
-			Kayttaja user1 = new Kayttaja ("user", "$2y$12$nJFSm7ZKZS1Bq83wUsDRn.VN/Mqpj3IxSG4TnHhc/s3.36aVQOUS2", "USER");
-			Kayttaja user2 = new Kayttaja ("admin", "$2y$12$/jKIdhatvwCuuW5.aQUjwOTaEIYI5a3iI2xNco4.pns9Xl3BZ9sPi", "ADMIN");
-			Kayttaja user3 = new Kayttaja ("seppo", "$2y$12$x7dd/BQU/6s.VARqq15PFOEfCcBjviKaJEuny3Yqtkp9Fzs50zETS", "USER");
-			krepository.save(user1);
-			krepository.save(user2);
-			krepository.save(user3);
+			//Kayttaja user1 = new Kayttaja ("user", "$2y$12$nJFSm7ZKZS1Bq83wUsDRn.VN/Mqpj3IxSG4TnHhc/s3.36aVQOUS2", "USER");
+			//Kayttaja user2 = new Kayttaja ("admin", "$2y$12$/jKIdhatvwCuuW5.aQUjwOTaEIYI5a3iI2xNco4.pns9Xl3BZ9sPi", "ADMIN");
+			//Kayttaja user3 = new Kayttaja ("seppo", "$2y$12$x7dd/BQU/6s.VARqq15PFOEfCcBjviKaJEuny3Yqtkp9Fzs50zETS", "USER");
+			//krepository.save(user1);
+			//krepository.save(user2);
+			//krepository.save(user3);
 			
 			// Luodaan testi otteluita
 			Ottelu ottelu1 = new Ottelu ("New york", "Edmonton", 2, 5, 0, 3, "Ei");
