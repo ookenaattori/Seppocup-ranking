@@ -128,7 +128,7 @@ public class JoukkueController {
 	}
 
 	// RESTful service jolla haetaan kaikki joukkueet
-	@CrossOrigin(origins = "http://localhost:3000/")
+	@CrossOrigin(origins = "http://localhost:3000")
 	@RequestMapping(value = "/joukkueet", method = RequestMethod.GET)
 	public @ResponseBody List<Joukkue> joukkueListRest() {
 		return (List<Joukkue>) repository.findAll();
