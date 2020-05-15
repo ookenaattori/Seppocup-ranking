@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,6 +31,8 @@ public class JoukkueController {
 
 	@Autowired
 	private OtteluRepository orepository;
+	
+	
 
 	// Näytä kaikki joukkueet pisteiden mukaan
 	@RequestMapping("/ranking")
@@ -125,6 +128,7 @@ public class JoukkueController {
 	}
 
 	// RESTful service jolla haetaan kaikki joukkueet
+	@CrossOrigin(origins = "http://localhost:3000/")
 	@RequestMapping(value = "/joukkueet", method = RequestMethod.GET)
 	public @ResponseBody List<Joukkue> joukkueListRest() {
 		return (List<Joukkue>) repository.findAll();
