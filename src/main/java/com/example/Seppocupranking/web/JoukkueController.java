@@ -135,11 +135,13 @@ public class JoukkueController {
 	}
 
 	// RESTful service jolla haetaan joukkue id:n perusteella
+	@CrossOrigin(origins = "http://localhost:3000")
 	@RequestMapping(value = "/joukkue/{id}", method = RequestMethod.GET)
 	public @ResponseBody Optional<Joukkue> findStudentRest(@PathVariable("id") Long joukkueId) {
 		return repository.findById(joukkueId);
 	}
 	// RESTful service jolla haetaan kaikki ottelut
+	@CrossOrigin(origins = "http://localhost:3000")
 		@RequestMapping(value = "/ottelutapi", method = RequestMethod.GET)
 		public @ResponseBody List<Ottelu> otteluListRest() {
 			return (List<Ottelu>) orepository.findAll();
