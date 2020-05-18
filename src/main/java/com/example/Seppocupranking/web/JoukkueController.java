@@ -19,7 +19,7 @@ import com.example.Seppocupranking.domain.Ottelu;
 import com.example.Seppocupranking.domain.OtteluRepository;
 import com.example.Seppocupranking.domain.Valmentaja;
 import com.example.Seppocupranking.domain.ValmentajaRepository;
-@CrossOrigin
+
 @Controller
 public class JoukkueController {
 
